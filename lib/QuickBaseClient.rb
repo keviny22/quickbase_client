@@ -1497,7 +1497,13 @@ class Client
    # Converts a string into an array, given a field separator.
    # '"' followed by the field separator are treated the same way as just the field separator.
    def splitString(string, fieldSeparator = ",")
-     CSV.parse(string, col_sep: fieldSeparator).shift
+      print "string: #{string}"
+
+      response = CSV.parse(string, col_sep: fieldSeparator).shift
+
+      print "response: #{response}"
+
+      return response
    end
 
    # Returns the URL-encoded version of a non-printing character.
@@ -4380,6 +4386,10 @@ class Client
       importSVFile( filename, ",", dbid, targetFieldNames, validateLines )
    end
 
+   def test(blah)
+      "blah #{blah}"
+   end
+
    # Import records from a text file in Tab-Separated-Values format.
    def importTSVFile( filename, dbid = @dbid, targetFieldNames = nil, validateLines = true )
       importSVFile( filename, "\t", dbid, targetFieldNames, validateLines )
@@ -4431,6 +4441,7 @@ class Client
                   }
                   return 0 if targetFieldIDs.length != targetFieldNames.length
                else
+                  print "blah"
                   fieldValues = splitString( line, fieldSeparator )
                   if !validateLines 
                      validLines[ linenum ] = fieldValues
@@ -4469,7 +4480,7 @@ class Client
 
          end
       end
-      return num_recs_imported, invalidLines
+      return "blah", num_recs_imported, invalidLines
    end
 
    # Make a CSV file using the results of a query.
