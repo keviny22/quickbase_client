@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'quickbase_client'
-  s.version       = '1.0.25.intuit'
+  s.version       = '1.0.31'
   s.date          = '2015-03-24'
   s.summary       = "Ruby client for QuickBase"
   s.description   = "A Ruby client for database applications on http://www.quickbase.com"
